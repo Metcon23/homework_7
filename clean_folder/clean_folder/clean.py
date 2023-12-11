@@ -136,16 +136,14 @@ unknown_extensions = set()
 
 def main():
     
-    if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <folder_path>")
+        sys.exit(1)
 
-        if len(sys.argv) != 2:
-            print("Usage: python script.py <folder_path>")
-            sys.exit(1)
+    folder_to_sort = sys.argv[1]
 
-        folder_to_sort = sys.argv[1]
+    if not os.path.isdir(folder_to_sort):
+        print(f"{folder_to_sort} is not a directory.")
+        sys.exit(1)
 
-        if not os.path.isdir(folder_to_sort):
-            print(f"{folder_to_sort} is not a directory.")
-            sys.exit(1)
-
-        sort_folder(folder_to_sort)
+    sort_folder(folder_to_sort)
